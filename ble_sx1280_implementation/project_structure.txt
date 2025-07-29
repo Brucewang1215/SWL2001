@@ -1,0 +1,66 @@
+BLE SX1280 Implementation Project Structure
+==========================================
+
+ble_sx1280_implementation/
+├── Core/                           # 应用核心代码
+│   ├── Inc/
+│   │   ├── ble_app.h              # BLE应用接口
+│   │   ├── main.h                 # 主程序头文件
+│   │   ├── stm32g0xx_hal_conf.h   # HAL配置
+│   │   └── stm32g0xx_it.h         # 中断处理声明
+│   └── Src/
+│       ├── ble_app.c              # BLE应用实现
+│       ├── main.c                 # 主程序
+│       ├── stm32g0xx_hal_msp.c    # HAL MSP配置
+│       ├── stm32g0xx_it.c         # 中断处理实现
+│       └── system_stm32g0xx.c     # 系统初始化
+│
+├── Middleware/                     # 中间件
+│   └── BLE_Stack/                 # BLE协议栈
+│       ├── Inc/
+│       │   ├── ble_defs.h         # BLE定义
+│       │   ├── ble_gatt.h         # GATT接口
+│       │   └── ble_ll.h           # Link Layer接口
+│       └── Src/
+│           ├── ble_gatt.c         # GATT实现
+│           └── ble_ll.c           # Link Layer实现
+│
+├── Drivers/                        # 驱动程序
+│   ├── BSP/                       # 板级支持包
+│   │   ├── Inc/
+│   │   │   └── sx1280_hal_stm32g0.h  # SX1280 HAL接口
+│   │   └── Src/
+│   │       └── sx1280_hal_stm32g0.c  # SX1280 HAL实现
+│   ├── STM32G0xx_HAL_Driver/      # STM32 HAL库（需要从ST获取）
+│   └── SX1280/                    # SX1280驱动（从LBM库链接）
+│
+├── Makefile                        # 构建配置
+├── STM32G071KBTx_FLASH.ld         # 链接脚本
+├── startup_stm32g071xx.s          # 启动文件
+├── README.md                      # 项目说明
+├── project_summary.md             # 项目总结
+├── project_structure.txt          # 本文件
+└── sx1280_ble_implementation.md   # 技术实现文档
+
+文件统计：
+---------
+源文件(.c):     9个
+头文件(.h):     7个
+汇编文件(.s):   1个
+构建文件:       2个（Makefile, .ld）
+文档文件:       4个（.md, .txt）
+总计:          23个文件
+
+代码行数估计：
+------------
+C源代码:       ~4000行
+C头文件:       ~1000行
+总计:          ~5000行代码
+
+主要功能模块：
+------------
+1. BLE Link Layer    - 连接管理、数据收发
+2. GATT Client      - 手环通信协议
+3. Application      - 用户接口、状态管理
+4. HAL Adaptation   - 硬件接口适配
+5. Build System     - 编译构建支持
