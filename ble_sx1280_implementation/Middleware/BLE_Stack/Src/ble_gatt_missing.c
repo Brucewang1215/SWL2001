@@ -15,6 +15,7 @@
 
 #include "ble_gatt.h"
 #include "stm32g0xx_hal.h"
+#include <stdio.h>
 
 /**
  * @brief 等待并读取ATT响应 / Wait and read ATT response

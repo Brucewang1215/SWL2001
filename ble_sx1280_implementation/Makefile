@@ -39,7 +39,9 @@ Core/Src/stm32g0xx_it.c \
 Core/Src/stm32g0xx_hal_msp.c \
 Core/Src/system_stm32g0xx.c \
 Middleware/BLE_Stack/Src/ble_ll.c \
+Middleware/BLE_Stack/Src/ble_ll_missing.c \
 Middleware/BLE_Stack/Src/ble_gatt.c \
+Middleware/BLE_Stack/Src/ble_gatt_missing.c \
 Drivers/BSP/Src/sx1280_hal_stm32g0.c \
 Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_tim.c \
 Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_tim_ex.c \

@@ -19,6 +19,7 @@
 #define BLE_LL_H
 
 #include "ble_defs.h"
+#include "sx128x_ble_defs.h"
 #include "sx128x.h"
 
 /* 前向声明 / Forward Declaration */

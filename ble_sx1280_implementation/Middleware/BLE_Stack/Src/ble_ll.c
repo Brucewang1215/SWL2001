@@ -169,7 +169,7 @@ ble_status_t ble_ll_start_scanning(ble_conn_context_t* ctx,
     
     /* 开始在广播信道37上扫描 / Start scanning on advertising channel 37 */
     sx128x_set_rf_freq(ctx->radio_context, channel_freq_table[37]);  // 2402 MHz
-    sx128x_set_ble_whitening_seed(ctx->radio_context, 37 | 0x40);    // 信道37的白化种子 / Whitening seed for channel 37
+    sx128x_set_gfsk_ble_whitening_seed(ctx->radio_context, 37 | 0x40);    // 信道37的白化种子 / Whitening seed for channel 37
     sx128x_set_rx(ctx->radio_context);                               // 进入接收模式 / Enter receive mode
     
     return BLE_STATUS_OK;
@@ -327,7 +327,7 @@ static void ll_handle_connection_event(ble_conn_context_t* ctx)
     
     /* 配置无线电 */
     sx128x_set_rf_freq(ctx->radio_context, freq);
-    sx128x_set_ble_whitening_seed(ctx->radio_context, channel | 0x40);
+    sx128x_set_gfsk_ble_whitening_seed(ctx->radio_context, channel | 0x40);
     
     /* Master TX */
     if (ctx->tx_pending || ctx->event_counter == 0) {

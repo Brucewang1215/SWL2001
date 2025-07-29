@@ -133,7 +133,7 @@ bool ll_scan_for_device(ble_conn_context_t* ctx, uint8_t* target_addr)
         uint32_t freq = ble_ll_get_frequency(channel); // 获取频率 / Get frequency
         
         sx128x_set_rf_freq(ctx->radio_context, freq);
-        sx128x_set_ble_whitening_seed(ctx->radio_context, channel | 0x40);
+        sx128x_set_gfsk_ble_whitening_seed(ctx->radio_context, channel | 0x40);
         sx128x_set_rx(ctx->radio_context);             // 重新进入接收模式 / Re-enter receive mode
     }
     
